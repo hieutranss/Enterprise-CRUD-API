@@ -1,3 +1,4 @@
+//  a method to get all cars info from database using HTTP GET method
 document.addEventListener("DOMContentLoaded", function() {
 	// create a GET request to retrieve ALL movies, and add them to the table
 
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	xhr.send();
 });
 
-// low-level DOM Manipulation
+// this function is used to add cars into table
 function addCarToTable(car) {
 
 	// creating all of our needed DOM elements
@@ -50,7 +51,6 @@ function addCarToTable(car) {
 	}, false);
 	del.style = "border:white;text-align:center";
 	del.innerHTML = "<i class='fas fa-minus-circle'></i>"
-
 	var edit = document.createElement('button');
 	edit.type = "button";
 	edit.id = "edit-id";
@@ -107,7 +107,7 @@ function addCarToTable(car) {
 	document.getElementById('car-table-body').appendChild(tr);
 }
 
-
+// send user's values to HTTP POST method to add a car to database
 document.getElementById('new-car-form').addEventListener('submit', function(event) {
 	event.preventDefault();		// prevent default form actions from occuring
 
@@ -168,14 +168,14 @@ document.getElementById('new-car-form').addEventListener('submit', function(even
 });
 
 
-
+// this method is used to open a form to accept user input values
 var carModal = document.getElementById('buttonM')
 carModal.addEventListener('show.bs.modal', function(event) {
 	// Button that triggered the modal
 	var button = event.relatedTarget
 })
 
-
+// this method is to delete a car based on the id of the car
 var deleteCar = function(str_id) {
 	console.log(str_id);
 	let xhr = new XMLHttpRequest();
@@ -187,9 +187,8 @@ var deleteCar = function(str_id) {
 }
 
 
-
+// this method is to edit a car based on the values that the user provided
 var editCar = function(car) {
-
 	document.getElementById('edit-car-form').addEventListener('submit', function(event) {
 		event.preventDefault();		
 
@@ -204,6 +203,7 @@ var editCar = function(car) {
 		var editDriveLine = document.getElementById('edit-driveline').value;
 		var editFuel_type = document.getElementById('edit-fuel').value;
 
+// if statement is used to compare between if the input value is an empty string or not
 if(editName == ''){
 	editName = car.name;
 }
@@ -231,6 +231,7 @@ if(editDriveLine == ''){
 if(editFuel_type == ''){
 	editFuel_type = car.fuel_type
 }
+		
 		    var updatedCar = {
 			    id : car.id,
 		        name : editName,
@@ -250,8 +251,8 @@ if(editFuel_type == ''){
 	xhr.onreadystatechange = function() {
 
 		if (xhr.readyState === 4) {
-			
-			document.getElementById('edit-car-form').reset();
+	 
+	    document.getElementById('edit-car-form').reset();
             $('#editModal').modal('hide');
             window.location.reload();
 		}
@@ -264,12 +265,3 @@ if(editFuel_type == ''){
 	xhr.send(JSON.stringify(updatedCar));
 	});
 }
-
-
-
-
-
-
-
-
-
