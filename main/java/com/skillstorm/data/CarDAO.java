@@ -14,6 +14,7 @@ import java.util.TreeSet;
 
 import com.skillstorm.beans.Car;
 
+// a DAO class to process data in database
 public class CarDAO {
 
 	private static final String url = "jdbc:mysql://localhost:3306/car";
@@ -28,6 +29,7 @@ public class CarDAO {
 		}
 	}
 
+	// a query method to return all cars from database
 	public List<Car> findAll() {
 
 		List<Car> allCars = new LinkedList<>();
@@ -70,6 +72,7 @@ public class CarDAO {
 		return allCars;
 	}
 
+	// a query method to add a new car into database
 	public Car create(Car car) {
 
 		// 2. create the connection -AND- 5. closing the connection
@@ -109,6 +112,7 @@ public class CarDAO {
 		return car;
 	}
 	
+	// a query method to edit a car in database
 	public void update(Car newCar) {
 		System.out.println("update in DAO");
 		// 2. create the connection -AND- 5. closing the connection
@@ -138,6 +142,7 @@ public class CarDAO {
 		}
 	}
 	
+	// a query method to delete a car in database
 	public void delete(Car car) {
 		System.out.println("Delete in DAO");
 		System.out.println(car.getId());
@@ -156,13 +161,5 @@ public class CarDAO {
 			e.printStackTrace();
 		}	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
