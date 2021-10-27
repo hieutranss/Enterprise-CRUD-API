@@ -4,17 +4,16 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.skillstorm.beans.Car;
 import com.skillstorm.data.CarDAO;
 
+// a class that accepts request from xhr and sends response back to xhr
 @WebServlet(urlPatterns = "/api/cars")
 public class CarServlet extends HttpServlet  {
 
@@ -47,12 +46,12 @@ public class CarServlet extends HttpServlet  {
 		super.service(req, resp);	
 	}
 	
+	// method to get all cars from database
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		System.out.println("servlet GET()");
-		
-		
+
 		List<Car> allCars = dao.findAll();
 		
 		String json = new ObjectMapper().writeValueAsString(allCars);
@@ -61,6 +60,7 @@ public class CarServlet extends HttpServlet  {
 
 	}
 	
+	// method to add a new car into database
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -80,42 +80,30 @@ public class CarServlet extends HttpServlet  {
 		
 	}
 	
+	// method to edit a car from database
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("servlet PUT()");
 
 		InputStream requestBody = req.getInputStream();
-		
-		System.out.println("in doput " + requestBody);
+		System.out.println("in doPut " + requestBody);
 		Car car = new ObjectMapper().readValue(requestBody, Car.class);
 		System.out.println(car);
- 
 		dao.update(car);
 		
 	}
 	
+	// method to delete a car from database
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("servlet DELETE()");
 		
 		// parse the body of the http request
 		InputStream requestBody = req.getInputStream();
-		
-		System.out.println("in dodelete " + requestBody);
+		System.out.println("in doDelete " + requestBody);
 		Car car = new ObjectMapper().readValue(requestBody, Car.class);
 		System.out.println(car);
-        dao.delete(car);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+                dao.delete(car); 
 	}
 
 
