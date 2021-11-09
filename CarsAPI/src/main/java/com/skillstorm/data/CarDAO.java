@@ -157,12 +157,4 @@ public class CarDAO {
 		}	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 }
