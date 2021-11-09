@@ -105,18 +105,5 @@ public class CarServlet extends HttpServlet  {
 		Car car = new ObjectMapper().readValue(requestBody, Car.class);
 		System.out.println(car);
         dao.delete(car);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 	}
-
-
 }
