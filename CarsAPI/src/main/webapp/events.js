@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
 	// create a GET request to retrieve ALL movies, and add them to the table
-
 	// 1. make an xhr object (ready state is 0)
 	let xhr = new XMLHttpRequest();		// make HTTP requests
-
 	// 2. define what happens during the AJAX call
 	xhr.onreadystatechange = function() {
-
 		if (xhr.readyState === 4) {
 			console.log(JSON.parse(xhr.responseText));		 
 
@@ -27,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // low-level DOM Manipulation
 function addCarToTable(car) {
-
 	// creating all of our needed DOM elements
 	var tr = document.createElement('tr');
 	var name = document.createElement('td');
@@ -168,7 +164,6 @@ document.getElementById('new-car-form').addEventListener('submit', function(even
 });
 
 
-
 var carModal = document.getElementById('buttonM')
 carModal.addEventListener('show.bs.modal', function(event) {
 	// Button that triggered the modal
@@ -187,12 +182,9 @@ var deleteCar = function(str_id) {
 }
 
 
-
 var editCar = function(car) {
-
 	document.getElementById('edit-car-form').addEventListener('submit', function(event) {
 		event.preventDefault();		
-
 		// get the data from the form
 		var editName = document.getElementById('edit-name').value;
 		var editMake = document.getElementById('edit-make').value;
@@ -264,12 +256,3 @@ if(editFuel_type == ''){
 	xhr.send(JSON.stringify(updatedCar));
 	});
 }
-
-
-
-
-
-
-
-
-
