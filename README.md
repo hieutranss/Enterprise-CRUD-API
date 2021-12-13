@@ -2,9 +2,9 @@
 
 # Enterprise CRUD API 
 
-You will create a full-stack API complete with database, backend, and frontend. This API will be centered around some enterprise object of your choice (house, flights, cars, products, movies, etc.). 
+Create a full-stack API complete with database, backend, and frontend. This API will be centered around some enterprise object of your choice (house, flights, cars, products, movies, etc.). 
 
-Your app must provide a means for creating, retrieving, updating, and deleting the objects, and show those changes on the frontend.  
+The app must provide a means for creating, retrieving, updating, and deleting the objects, and show those changes on the frontend.  
 
 This project will be due by the end of the 5th week, October 22, 2021. 
 
