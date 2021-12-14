@@ -1,5 +1,3 @@
-# Project 1: Car API
-
 # Enterprise CRUD API 
 
 Create a full-stack API complete with database, backend, and frontend. This API will be centered around some enterprise object of your choice (house, flights, cars, products, movies, etc.). 
